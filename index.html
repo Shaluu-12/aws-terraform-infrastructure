@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terraform Infrastructure Dashboard</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f3f6fc;color:#17243b}
+header{background:#14213d;color:white;padding:25px 7%}
+header h1{margin:0 0 8px;font-size:26px}
+header p{margin:0;color:#cbd5e1}
+main{max-width:1100px;margin:30px auto;padding:0 20px}
+.banner{background:#e0f2fe;border:1px solid #7dd3fc;padding:16px;border-radius:12px;margin-bottom:22px;color:#075985}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px}
+.card{background:white;padding:22px;border-radius:14px;box-shadow:0 3px 14px #17243b0d;border:1px solid #e3e9f2}
+.card .icon{font-size:27px}
+.card h3{margin:13px 0 8px}
+.card p{color:#64748b;line-height:1.5;margin:0}
+.status{display:inline-block;background:#dcfce7;color:#166534;padding:6px 10px;border-radius:20px;font-size:12px;font-weight:bold}
+.section{margin-top:28px}
+.section h2{font-size:20px}
+.architecture{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px;background:white;border:1px solid #e3e9f2;border-radius:14px;padding:24px}
+.node{background:#eff6ff;border:1px solid #bfdbfe;padding:16px;border-radius:10px;text-align:center;font-weight:bold}
+.arrow{font-size:23px;color:#64748b}
+table{width:100%;border-collapse:collapse;background:white;border-radius:12px;overflow:hidden}
+th,td{text-align:left;padding:14px;border-bottom:1px solid #e5e7eb}
+th{background:#eaf0fa}
+footer{text-align:center;color:#64748b;padding:30px}
+@media(max-width:550px){header h1{font-size:22px}.architecture{flex-direction:column}.arrow{transform:rotate(90deg)}}
+</style>
+</head>
+<body>
+<header>
+  <h1>☁ Terraform Infrastructure Dashboard</h1>
+  <p>AWS Infrastructure Automation · Portfolio Project</p>
+</header>
+<main>
+  <div class="banner">
+    <strong>DEMO MODE</strong> — This dashboard illustrates the Terraform design.
+    No AWS resources have been deployed by this project.
+  </div>
+
+  <div class="stats">
+    <div class="card">
+      <div class="icon">🌐</div>
+      <h3>Amazon VPC</h3>
+      <p>CIDR: 10.0.0.0/16</p>
+      <p>Private virtual network design</p>
+    </div>
+    <div class="card">
+      <div class="icon">🧩</div>
+      <h3>Public Subnet</h3>
+      <p>CIDR: 10.0.1.0/24</p>
+      <p>Public IP assignment enabled</p>
+    </div>
+    <div class="card">
+      <div class="icon">🔗</div>
+      <h3>Internet Gateway</h3>
+      <p>Designed for internet routing</p>
+      <p>Not deployed</p>
+    </div>
+    <div class="card">
+      <div class="icon">🛡️</div>
+      <h3>Security Group</h3>
+      <p>SSH: administrator IP</p>
+      <p>HTTP: port 80</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <h2>Infrastructure Architecture</h2>
+    <div class="architecture">
+      <div class="node">AWS VPC<br><small>10.0.0.0/16</small></div>
+      <div class="arrow">→</div>
+      <div class="node">Public Subnet<br><small>10.0.1.0/24</small></div>
+      <div class="arrow">→</div>
+      <div class="node">Route Table<br><small>Internet route</small></div>
+      <div class="arrow">→</div>
+      <div class="node">Internet Gateway</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Planned Resource Summary</h2>
+    <table>
+      <thead><tr><th>Resource</th><th>Terraform name</th><th>Demo status</th></tr></thead>
+      <tbody>
+        <tr><td>VPC</td><td>aws_vpc.main</td><td><span class="status">Configured</span></td></tr>
+        <tr><td>Public subnet</td><td>aws_subnet.public</td><td><span class="status">Configured</span></td></tr>
+        <tr><td>Internet Gateway</td><td>aws_internet_gateway.igw</td><td><span class="status">Configured</span></td></tr>
+        <tr><td>Route table</td><td>aws_route_table.public</td><td><span class="status">Configured</span></td></tr>
+        <tr><td>Route association</td><td>aws_route_table_association.public</td><td><span class="status">Configured</span></td></tr>
+        <tr><td>Security group</td><td>aws_security_group.web</td><td><span class="status">Configured</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section">
+    <h2>Tools & Technologies</h2>
+    <div class="card">
+      Terraform · AWS · HCL · AWS CloudShell · Git · GitHub
+      <p style="margin-top:12px">Workflow: Initialize → Format → Validate → Plan</p>
+    </div>
+  </section>
+</main>
+<footer>Terraform Portfolio Project · Visual demonstration only · No live AWS resources</footer>
+</body>
+</html>
+
